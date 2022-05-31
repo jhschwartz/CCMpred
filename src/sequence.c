@@ -19,10 +19,10 @@ const unsigned char CHAR_INDICES[21] = {
 /** Convert amino acid ASCII code to an index, with 0 = gap and 1 = A, 2 = C, etc.
  */
 unsigned char aatoi(unsigned char aa) {
-	if(!isalpha(aa)) { return 20; }
+	if(!isalpha(aa)) { return 21; }
 
 	aa = toupper(aa);
-	if(aa < 65 || aa > 90) { return 20; }
+	if(aa < 65 || aa > 90) { return 21; }
 	return AMINO_INDICES[aa - 65];
 }
 

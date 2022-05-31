@@ -1,11 +1,11 @@
 #include "conjugrad.h"
 
-#define N_ALPHA 21
+#define N_ALPHA 22
 
 #ifdef PADDING
 #define N_ALPHA_PAD 32
 #else
-#define N_ALPHA_PAD 21
+#define N_ALPHA_PAD 22
 #endif
 
 #define x1_index(j,a) (a) * (ncol) + j

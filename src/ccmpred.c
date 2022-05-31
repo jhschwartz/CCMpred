@@ -121,7 +121,7 @@ void init_bias(conjugrad_float_t *x, userdata *ud) {
 		}
 
 		// we set the weights of the other amino acids relative to the gap column at index 20 (to avoid degeneracy)
-		conjugrad_float_t aanorm = flog(aafrac[20]);
+		conjugrad_float_t aanorm = flog(aafrac[N_ALPHA-1]);
 		for(int a = 0; a < N_ALPHA - 1; a++) {
 			V(j, a) = flog( aafrac[a] ) - aanorm;
 		}
@@ -671,17 +671,17 @@ int main(int argc, char **argv)
 	conjugrad_float_t *outmat = conjugrad_malloc(ncol * ncol);
 
 	FILE *rawfile = NULL;
-	if(rawfilename != NULL) {
+	/*if(rawfilename != NULL) {
 		printf("Writing raw output to %s\n", rawfilename);
 		rawfile = fopen(rawfilename, "w");
 
 		if(rawfile == NULL) {
 			printf("Cannot open %s for writing!\n\n", rawfilename);
 			return 4;
-		}
+		}*/
 
 		write_raw(rawfile, x, ncol);
-	}
+	//}
 
 #ifdef MSGPACK
 

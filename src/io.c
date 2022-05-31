@@ -39,21 +39,26 @@ void write_raw(FILE *out, conjugrad_float_t *x, int ncol) {
 	(void)x2;
 
 	for(int i = 0; i < ncol; i++) {
-		for(int a = 0; a < N_ALPHA - 1; a++) {
-			fprintf(out, "%g\t", V(i, a));
+		for(int a = 0; a < N_ALPHA ; a++) {
+			// fprintf(out, "%g\t", V(i, a));
+			printf("%g\t", V(i, a));
 		}
-		fprintf(out, "\n");
+		// fprintf(out, "\n");
+		printf("\n");
 	}
 
 
 	for(int i = 0; i < ncol; i++) {
 		for(int j = i+1; j < ncol; j++) {
-			fprintf(out, "# %d %d\n", i, j);
+			// fprintf(out, "# %d %d\n", i, j);
+			printf("# %d %d\n", i, j);
 			for(int a = 0; a < N_ALPHA; a++) {
 				for(int b = 0; b < N_ALPHA; b++) {
-					fprintf(out, "%.20e\t", W(b,j,a,i));
+					//fprintf(out, "%.20e\t", W(b,j,a,i));
+					printf("%.20e\t", W(b,j,a,i));
 				}
-				fprintf(out, "\n");
+				//fprintf(out, "\n");
+				printf("\n");
 			}
 		}
 	}
