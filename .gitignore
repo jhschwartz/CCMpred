@@ -35,7 +35,7 @@ install_manifest.txt
 _CPack_Packages
 CPackConfig.cmake
 CPackSourceConfig.cmake
-
+build
 
 ### vim
 
@@ -51,3 +51,5 @@ _build
 bin
 data
 *.pyc
+build
+.vscode
