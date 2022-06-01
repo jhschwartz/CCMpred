@@ -53,7 +53,7 @@ void calculate_weights(conjugrad_float_t *w, unsigned char *msa, uint64_t ncol, 
 		if(wt < wmin) { wmin = wt; }
 	}
 
-	printf("Reweighted %ld sequences with threshold %.1f to Beff=%g weight mean=%g, min=%g, max=%g\n", nrow, threshold, wsum, wsum / nrow, wmin, wmax);
+	printf("Reweighted %llu sequences with threshold %.1f to Beff=%g weight mean=%g, min=%g, max=%g\n", nrow, threshold, wsum, wsum / nrow, wmin, wmax);
 
 }
 
@@ -63,5 +63,5 @@ void uniform_weights(conjugrad_float_t *w, uint64_t nrow) {
 		w[i] = F1;
 	}
 
-	printf("Using uniform weights on %ld sequences\n", nrow);
+	printf("Using uniform weights on %llu sequences\n", nrow);
 }

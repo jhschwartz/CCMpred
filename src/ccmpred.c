@@ -89,11 +89,11 @@ static int progress(
  */
 void init_bias(conjugrad_float_t *x, userdata *ud) {
 
-	int ncol = ud->ncol;
-	int nrow = ud->nrow;
-	int nsingle = ncol * (N_ALPHA - 1);
-	int nsingle_padded = nsingle + N_ALPHA_PAD - (nsingle % N_ALPHA_PAD);
-	int nvar_padded = nsingle_padded + ncol * ncol * N_ALPHA * N_ALPHA_PAD;
+	uint64_t ncol = ud->ncol;
+	uint64_t nrow = ud->nrow;
+	uint64_t nsingle = ncol * (N_ALPHA - 1);
+	uint64_t nsingle_padded = nsingle + N_ALPHA_PAD - (nsingle % N_ALPHA_PAD);
+	uint64_t nvar_padded = nsingle_padded + ncol * ncol * N_ALPHA * N_ALPHA_PAD;
 
 	conjugrad_float_t *x1 = x;
 
@@ -384,10 +384,10 @@ int main(int argc, char **argv)
 	unsigned char* msa = read_msa(msafile, &ncol, &nrow);
 	fclose(msafile);
 
-	int nsingle = ncol * (N_ALPHA - 1);
-	int nvar = nsingle + ncol * ncol * N_ALPHA * N_ALPHA;
-	int nsingle_padded = nsingle + N_ALPHA_PAD - (nsingle % N_ALPHA_PAD);
-	int nvar_padded = nsingle_padded + ncol * ncol * N_ALPHA * N_ALPHA_PAD;
+	uint64_t nsingle = ncol * (N_ALPHA - 1);
+	uint64_t nvar = nsingle + ncol * ncol * N_ALPHA * N_ALPHA;
+	uint64_t nsingle_padded = nsingle + N_ALPHA_PAD - (nsingle % N_ALPHA_PAD);
+	uint64_t nvar_padded = nsingle_padded + ncol * ncol * N_ALPHA * N_ALPHA_PAD;
 
 #ifdef CURSES
 	bool color = detect_colors();
@@ -607,7 +607,7 @@ int main(int argc, char **argv)
 
 #endif
 
-	printf("\nWill optimize %d %ld-bit variables\n\n", nvar, sizeof(conjugrad_float_t) * 8);
+	printf("\nWill optimize %llu %ld-bit variables\n\n", nvar, sizeof(conjugrad_float_t) * 8);
 
 	if(color) { printf("\x1b[1m"); }
 	printf("iter\teval\tf(x)    \t║x║     \t║g║     \tstep\n");
