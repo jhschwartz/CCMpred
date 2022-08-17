@@ -676,17 +676,17 @@ int main(int argc, char **argv)
 	conjugrad_float_t *outmat = conjugrad_malloc(ncol * ncol);
 
 	FILE *rawfile = NULL;
-	/*if(rawfilename != NULL) {
+	if(rawfilename != NULL) {
 		printf("Writing raw output to %s\n", rawfilename);
 		rawfile = fopen(rawfilename, "w");
 
 		if(rawfile == NULL) {
 			printf("Cannot open %s for writing!\n\n", rawfilename);
 			return 4;
-		}*/
+		}
 
 		write_raw(rawfile, x, ncol);
-	//}
+	}
 
 	FILE *numpyfile = NULL;
 	if (numpyfilename != NULL) {
