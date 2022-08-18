@@ -91,7 +91,7 @@ void write_raw_numpy(FILE *out, conjugrad_float_t *x, int ncol) {
 
     // Determine padded header size
     char header[200];
-    int dict_len = snprintf(header, 200, "{'descr': '<f4', 'fortran_order': False, 'shape': (%d, %d, 441), }", ncol, ncol);
+    int dict_len = snprintf(header, 200, "{'descr': '<f4', 'fortran_order': False, 'shape': (%d, %d, 484), }", ncol, ncol);
     int temp_len = 6 + 2 + 2 + dict_len + 1; // magic + version + header_length + dict + 0x0A;
     short padding = 0;
     short r = temp_len % 64;
